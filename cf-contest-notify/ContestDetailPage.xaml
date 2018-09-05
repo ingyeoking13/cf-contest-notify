@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="cf_contest_notify.ContestDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:cf_contest_notify"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer
+            Grid.Row="1" >
+            <RelativePanel 
+                Name="panel" 
+                VerticalAlignment="Stretch" >
+                <TextBlock Name="title" FontSize="18" FontWeight="Bold" TextWrapping="Wrap"/>
+                <TextBlock Name="Dateo" Margin="0, 20, 0, 0 " RelativePanel.Below="title" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Name="Date" Margin="0, 5, 0, 0 " RelativePanel.Below="Dateo" TextWrapping="Wrap"/>
+                <TextBlock Name="Durationo" Margin="0, 20, 0, 0" RelativePanel.Below="Date" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Name="Duration" Margin="0, 5, 0, 0" RelativePanel.Below="Durationo" TextWrapping="Wrap"/>
+                <TextBlock Name="RemainDateo" Margin="0, 20, 0, 0" RelativePanel.Below="Duration" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Name="RemainDate" Margin="0, 5, 0, 0" RelativePanel.Below="RemainDateo" TextWrapping="Wrap"/>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

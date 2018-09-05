@@ -5,8 +5,11 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +33,13 @@ namespace cf_contest_notify
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+        }
+        private void ExtendAcrylicIntoTitleBar()
+        {
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
 
         /// <summary>
@@ -70,6 +80,9 @@ namespace cf_contest_notify
                 }
                 // 현재 창이 활성 창인지 확인
                 Window.Current.Activate();
+
+                //Extend Acrylic
+                ExtendAcrylicIntoTitleBar();
             }
         }
 
@@ -95,6 +108,26 @@ namespace cf_contest_notify
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: 응용 프로그램 상태를 저장하고 백그라운드 작업을 모두 중지합니다.
             deferral.Complete();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                Window.Current.Content = rootFrame;
+            }
+
+            string payload = string.Empty;
+            if (args.Kind == ActivationKind.StartupTask)
+            {
+                var startupArgs = args as StartupTaskActivatedEventArgs;
+                payload = ActivationKind.StartupTask.ToString();
+            }
+
+            rootFrame.Navigate(typeof(MainPage), payload);
+            Window.Current.Activate();
         }
     }
 }

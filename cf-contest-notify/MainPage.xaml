@@ -5,10 +5,53 @@
     xmlns:local="using:cf_contest_notify"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:cf_contest_notify.Model"
+    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAltHighAcrylicElementBrush}">
 
-    <Grid>
+    <Grid >
+        <Grid.Background>
+            <Windows10FallCreatorsUpdate:AcrylicBrush BackgroundSource="HostBackdrop"
+                        TintColor="#FF0A72BD"
+                        TintOpacity="0.3"        
+                        FallbackColor="#FF4A86B2"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="CodeforceNotifier" Grid.ColumnSpan="4" Margin="5, 5, 0, 0" Foreground="White" FontWeight="Black"/>
 
+        <Grid Grid.Column="1" Grid.Row="2" Background="{ThemeResource SystemColorWindowBrush}">
+
+            <ListView 
+                ItemsSource="{x:Bind list}" 
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                IsItemClickEnabled="True"
+                Name="ViewContestList"
+                SelectionChanged="ViewContestList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Contest">
+                        <TextBlock Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="2" Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
+            <Frame Name="ContentDetail"/>
+        </Grid>
+        <AppBarButton Label="refresh" Icon="Refresh" FontSize="20" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Row="3" Grid.Column="1"/>
+        <AppBarButton Label="Codeforces" Icon="Globe" FontSize="20" Click="AppBarButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="3" Grid.Column="2"/>
     </Grid>
 </Page>
