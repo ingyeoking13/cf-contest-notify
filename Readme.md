@@ -34,3 +34,7 @@ by using my App, you consent to App Privacy Policy
 
 N/A, yet.
 
+## 6. Contacts  
+
+ingyeoking13@gmail.com  
+gaelim@naver.com  
