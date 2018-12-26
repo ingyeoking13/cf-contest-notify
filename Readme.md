@@ -22,6 +22,7 @@
 my App use Http Request  
 my App access Windows Appointment   
 my App open Web Browser  
+my App can be startup program
 
 #### **what my App doesn't**
 my App doesn't collect any information from you when you use my App.  
@@ -32,5 +33,4 @@ by using my App, you consent to App Privacy Policy
 
 ## 5. Download Link
 
-N/A, yet.
-
+[App Store](https://www.microsoft.com/store/productId/9P1TVVZQS266)

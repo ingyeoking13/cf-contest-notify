@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" IgnorableNamespaces="uap mp">
-  <Identity Name="ebd92d1c-a5e8-42a8-abbc-d4ef620280fb" Publisher="CN=yohan" Version="1.0.3.0" />
-  <mp:PhoneIdentity PhoneProductId="ebd92d1c-a5e8-42a8-abbc-d4ef620280fb" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="47757adkb.CodeforceNotifier" Publisher="CN=795FB515-6046-4FB5-B517-5D21CD38CCB8" Version="1.0.4.0" />
+  <mp:PhoneIdentity PhoneProductId="33a21f9d-5a1d-42bf-82da-03c9f4d597e9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>cf-contest-notify</DisplayName>
-    <PublisherDisplayName>yohan</PublisherDisplayName>
+    <DisplayName>Codeforce Notifier</DisplayName>
+    <PublisherDisplayName>adkb</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,10 +15,17 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="cf_contest_notify.App">
-      <uap:VisualElements DisplayName="cf-contest-notify" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="cf-contest-notify" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="codeforces contest notifier" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="cf-contest-notify" BackgroundColor="transparent">
+        <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+          <uap:Rotation Preference="landscape" />
+          <uap:Rotation Preference="portraitFlipped" />
+          <uap:Rotation Preference="landscapeFlipped" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
         <uap5:Extension Category="windows.startupTask">

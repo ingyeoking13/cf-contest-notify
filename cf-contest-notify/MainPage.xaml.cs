@@ -72,7 +72,7 @@ namespace cf_contest_notify
                         "You have disabled this app's ability to run " +
                         "as soon as you sign in, but if you change your mind, " +
                         "you can enable this in the Startup tab in Task Manager.",
-                        "TestStartup");
+                        "Startup Disabled");
                     await dialog.ShowAsync();
                     break;
                 case StartupTaskState.DisabledByPolicy:

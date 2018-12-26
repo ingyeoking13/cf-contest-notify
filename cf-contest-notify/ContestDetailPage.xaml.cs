@@ -27,7 +27,7 @@ namespace cf_contest_notify
         Contest contest = new Contest();
         public ContestDetailPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

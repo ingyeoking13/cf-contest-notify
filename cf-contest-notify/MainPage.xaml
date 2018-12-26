@@ -41,6 +41,9 @@
                 IsItemClickEnabled="True"
                 Name="ViewContestList"
                 SelectionChanged="ViewContestList_SelectionChanged">
+                <ListView.Header>
+                    <TextBlock Text="Contest List" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Contest">
                         <TextBlock Text="{Binding name}"/>
